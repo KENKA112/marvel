@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Хронология фильмов Marvel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="background-bokeh"></div>
+  <div class="container">
+  <h1><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Marvel_Logo.svg" alt="Marvel" class="logo"></h1>
+
+    <h1>Хронология фильмов Marvel</h1>
+
+    <div class="theme-toggle">
+      <label>
+        <input type="checkbox" id="themeSwitcher" />
+        Тёмная тема
+      </label>
+    </div>
+
+
+    <div class="movie-list" id="movieForm">
+      <label><input type="checkbox" id="movie1"> <span>Капитан Америка: Первый мститель (2011)</span></label>
+      <label><input type="checkbox" id="movie2"> <span>Капитан Марвел (2019)</span></label>
+      <label><input type="checkbox" id="movie3"> <span>Железный человек (2008)</span></label>
+      <label><input type="checkbox" id="movie4"> <span>Железный человек 2 (2010)</span></label>
+      <label><input type="checkbox" id="movie5"> <span>Невероятный Халк (2008)</span></label>
+      <label><input type="checkbox" id="movie6"> <span>Тор (2011)</span></label>
+      <label><input type="checkbox" id="movie7"> <span>Мстители (2012)</span></label>
+      <label><input type="checkbox" id="movie8"> <span>Железный человек 3 (2013)</span></label>
+      <label><input type="checkbox" id="movie9"> <span>Тор 2: Царство тьмы (2013)</span></label>
+      <label><input type="checkbox" id="movie10"> <span>Первый мститель: Другая война (2014)</span></label>
+      <label><input type="checkbox" id="movie11"> <span>Стражи Галактики (2014)</span></label>
+      <label><input type="checkbox" id="movie12"> <span>Стражи Галактики. Часть 2 (2017)</span></label>
+      <label><input type="checkbox" id="movie13"> <span>Мстители: Эра Альтрона (2015)</span></label>
+      <label><input type="checkbox" id="movie14"> <span>Человек-муравей (2015)</span></label>
+      <label><input type="checkbox" id="movie15"> <span>Первый мститель: Противостояние (2016)</span></label>
+      <label><input type="checkbox" id="movie16"> <span>Чёрная вдова (2021)</span></label>
+      <label><input type="checkbox" id="movie17"> <span>Чёрная пантера (2018)</span></label>
+      <label><input type="checkbox" id="movie18"> <span>Человек-паук: Возвращение домой (2017)</span></label>
+      <label><input type="checkbox" id="movie19"> <span>Доктор Стрэндж (2016)</span></label>
+      <label><input type="checkbox" id="movie20"> <span>Тор: Рагнарёк (2017)</span></label>
+      <label><input type="checkbox" id="movie21"> <span>Мстители: Война бесконечности (2018)</span></label>
+      <label><input type="checkbox" id="movie22"> <span>Человек-муравей и Оса (2018)</span></label>
+      <label><input type="checkbox" id="movie23"> <span>Мстители: Финал (2019)</span></label>
+      <label><input type="checkbox" id="movie24"> <span>Человек-паук: Вдали от дома (2019)</span></label>
+      <label><input type="checkbox" id="movie25"> <span>Вечные (2021)</span></label>
+      <label><input type="checkbox" id="movie26"> <span>Шан-Чи и легенда десяти колец (2021)</span></label>
+      <label><input type="checkbox" id="movie27"> <span>Человек-паук: Нет пути домой (2021)</span></label>
+      <label><input type="checkbox" id="movie28"> <span>Доктор Стрэндж: В мультивселенной безумия (2022)</span></label>
+      <label><input type="checkbox" id="movie29"> <span>Тор: Любовь и гром (2022)</span></label>
+      <label><input type="checkbox" id="movie30"> <span>Чёрная пантера: Ваканда навеки (2022)</span></label>
+      <label><input type="checkbox" id="movie31"> <span>Человек-муравей и Оса: Квантомания (2023)</span></label>
+      <label><input type="checkbox" id="movie32"> <span>Стражи Галактики. Часть 3 (2023)</span></label>
+      <label><input type="checkbox" id="movie33"> <span>Капитан Марвел 2: Марвелы (2023)</span></label>
+    </div>
+  </div>
+
+  <script>
+    // Сохраняем состояние чекбоксов
+    document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+      const id = checkbox.id;
+      const saved = localStorage.getItem(id);
+      if (saved === 'true') checkbox.checked = true;
+
+      checkbox.addEventListener('change', () => {
+        localStorage.setItem(id, checkbox.checked);
+      });
+    });
+
+    // Темная тема
+    const switcher = document.getElementById('themeSwitcher');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'light') {
+      body.classList.remove('dark');
+      switcher.checked = false;
+    } else {
+      body.classList.add('dark');
+      switcher.checked = true;
+    }
+
+    switcher.addEventListener('change', () => {
+      if (switcher.checked) {
+        body.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        body.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
+</body>
+</html>
+
+
