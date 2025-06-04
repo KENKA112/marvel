@@ -2,96 +2,179 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Хронология фильмов Marvel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marvel: Фильмы и Комиксы с чекбоксами</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+
 </head>
 <body>
-<div class="background-bokeh"></div>
   <div class="container">
-  <h1><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Marvel_Logo.svg" alt="Marvel" class="logo"></h1>
+    <h1>Marvel Universe</h1>
 
-    <h1>Хронология фильмов Marvel</h1>
-
-    <div class="theme-toggle">
-      <label>
-        <input type="checkbox" id="themeSwitcher" />
-        Тёмная тема
-      </label>
+    <div class="button-group">
+      <button id="btn-movies" class="active">Фильмы и сериалы</button>
+      <button id="btn-comics">Комиксы</button>
+      <button id="btn-associated">Проекты в ассоциации с Marvel</button>
     </div>
 
-
-    <div class="movie-list" id="movieForm">
-      <label><input type="checkbox" id="movie1"> <span>Капитан Америка: Первый мститель (2011)</span></label>
-      <label><input type="checkbox" id="movie2"> <span>Капитан Марвел (2019)</span></label>
-      <label><input type="checkbox" id="movie3"> <span>Железный человек (2008)</span></label>
-      <label><input type="checkbox" id="movie4"> <span>Железный человек 2 (2010)</span></label>
-      <label><input type="checkbox" id="movie5"> <span>Невероятный Халк (2008)</span></label>
-      <label><input type="checkbox" id="movie6"> <span>Тор (2011)</span></label>
-      <label><input type="checkbox" id="movie7"> <span>Мстители (2012)</span></label>
-      <label><input type="checkbox" id="movie8"> <span>Железный человек 3 (2013)</span></label>
-      <label><input type="checkbox" id="movie9"> <span>Тор 2: Царство тьмы (2013)</span></label>
-      <label><input type="checkbox" id="movie10"> <span>Первый мститель: Другая война (2014)</span></label>
-      <label><input type="checkbox" id="movie11"> <span>Стражи Галактики (2014)</span></label>
-      <label><input type="checkbox" id="movie12"> <span>Стражи Галактики. Часть 2 (2017)</span></label>
-      <label><input type="checkbox" id="movie13"> <span>Мстители: Эра Альтрона (2015)</span></label>
-      <label><input type="checkbox" id="movie14"> <span>Человек-муравей (2015)</span></label>
-      <label><input type="checkbox" id="movie15"> <span>Первый мститель: Противостояние (2016)</span></label>
-      <label><input type="checkbox" id="movie16"> <span>Чёрная вдова (2021)</span></label>
-      <label><input type="checkbox" id="movie17"> <span>Чёрная пантера (2018)</span></label>
-      <label><input type="checkbox" id="movie18"> <span>Человек-паук: Возвращение домой (2017)</span></label>
-      <label><input type="checkbox" id="movie19"> <span>Доктор Стрэндж (2016)</span></label>
-      <label><input type="checkbox" id="movie20"> <span>Тор: Рагнарёк (2017)</span></label>
-      <label><input type="checkbox" id="movie21"> <span>Мстители: Война бесконечности (2018)</span></label>
-      <label><input type="checkbox" id="movie22"> <span>Человек-муравей и Оса (2018)</span></label>
-      <label><input type="checkbox" id="movie23"> <span>Мстители: Финал (2019)</span></label>
-      <label><input type="checkbox" id="movie24"> <span>Человек-паук: Вдали от дома (2019)</span></label>
-      <label><input type="checkbox" id="movie25"> <span>Вечные (2021)</span></label>
-      <label><input type="checkbox" id="movie26"> <span>Шан-Чи и легенда десяти колец (2021)</span></label>
-      <label><input type="checkbox" id="movie27"> <span>Человек-паук: Нет пути домой (2021)</span></label>
-      <label><input type="checkbox" id="movie28"> <span>Доктор Стрэндж: В мультивселенной безумия (2022)</span></label>
-      <label><input type="checkbox" id="movie29"> <span>Тор: Любовь и гром (2022)</span></label>
-      <label><input type="checkbox" id="movie30"> <span>Чёрная пантера: Ваканда навеки (2022)</span></label>
-      <label><input type="checkbox" id="movie31"> <span>Человек-муравей и Оса: Квантомания (2023)</span></label>
-      <label><input type="checkbox" id="movie32"> <span>Стражи Галактики. Часть 3 (2023)</span></label>
-      <label><input type="checkbox" id="movie33"> <span>Капитан Марвел 2: Марвелы (2023)</span></label>
+    <div id="movies-list" class="list visible">
+      <ul>
+        <li class="movie"><label><input type="checkbox" data-id="movie-1" /> Капитан Америка: Первый мститель (2011)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-2" /> Капитан Марвел (2019)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-3" /> Железный человек (2008)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-4" /> Железный человек 2 (2010)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-5" /> Невероятный Халк (2008)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-6" /> Тор (2011)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-7" /> Мстители (2012)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-8" /> Железный человек 3 (2013)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-9" /> Тор 2: Царство тьмы (2013)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-10" /> Первый мститель: Другая война (2014)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-11" /> Стражи Галактики (2014)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-12" /> Стражи Галактики. Часть 2 (2017)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-13" /> Мстители: Эра Альтрона (2015)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-14" /> Человек-муравей (2015)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-15" /> Первый мститель: Противостояние (2016)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-16" /> Чёрная вдова (2021)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-17" /> Чёрная пантера (2018)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-18" /> Человек-паук: Возвращение домой (2017)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-19" /> Доктор Стрэндж (2016)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-20" /> Тор: Рагнарёк (2017)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-21" /> Мстители: Война бесконечности (2018)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-22" /> Человек-муравей и Оса (2018)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-23" /> Мстители: Финал (2019)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-24" /> Локи (2021)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-25" /> Что, если...? (2021)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-26" /> Ванда/Вижн (2021)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-27" /> Сокол и Зимний солдат (2021)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-28" /> Шан-Чи и легенда десяти колец (2021)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-29" /> Вечные (2021)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-30" /> Доктор Стрэндж: В мультивселенной безумия (2022)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-31" /> Соколиный глаз (2021)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-32" /> Лунный рыцарь (2022)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-33" /> Чёрная пантера: Ваканда навеки (2022)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-34" /> Женщина-Халк (2022)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-35" /> Мисс Марвел (2022)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-36" /> Тор: Любовь и гром (2022)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-37" /> Человек-паук: Нет пути домой (2021)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-38" /> Человек-муравей и Оса: Квантомания (2023)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-39" /> Стражи Галактики. Часть 3 (2023)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-40" /> Капитан Марвел 2: Марвелы (2023)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-41" /> Секретное вторжение (2023)</label></li>
+      </ul>
     </div>
+
+<div id="comics-list" class="list">
+  <h2>📚 Комиксы Marvel</h2>
+  <h3>🔗 Англоязычные источники:</h3>
+  <ul>
+    <li><a href="https://www.marvel.com/comics" target="_blank">Marvel Official Reading Orders</a> — официальный гайд от Marvel</li>
+    <li><a href="https://batcave.biz/index.php?do=regin" target="_blank">Batcave</a> — чтение некоторых комиксов</li>
+    <li><a href="https://comicbookreadingorders.com/marvel/marvel-master-reading-order/" target="_blank">Marvel Master Reading Order</a> — фанатский сайт с огромной базой</li>
+    <li><a href="https://www.goodreads.com/search?q=Marvel&qid=W7bJpocERC" target="_blank">Goodreads Marvel Reading Order</a> — список от сообщества</li>
+    <li><a href="https://www.comicbookherald.com/the-complete-marvel-reading-order-guide/" target="_blank">The Complete Marvel Reading Order Guide</a> — гайд по комиксам на английском</li>
+  </ul>
+
+  <h3>🔗 Русскоязычные источники:</h3>
+  <ul>
+    <li><a href="https://com-x.life" target="_blank">Com-x.life</a> — онлайн-чтение комиксов на русском</li>
+    <li><a href="https://mangalib.me" target="_blank">Mangalib (Marvel раздел)</a> — комиксы в русском переводе</li>
+    <li><a href="https://rutracker.org" target="_blank">RuTracker Marvel</a> — архивы для скачивания (при наличии доступа)</li>
+    <li><a href="https://tl.rulate.ru" target="_blank">Rulate (переводы)</a> — любительские переводы комиксов</li>
+	<li><a href="https://dzen.ru/a/Z5k4196daU1WED0o" target="_blank">Dzen (9nchantix)</a> — статья Дзен с порядком комиксов и разделением их на "арки"</li>
+  </ul>
+</div>
+
+
+    <div id="associated-films-list" class="list">
+      <ul>
+        <li class="associated-film"><label><input type="checkbox" data-id="assoc-11" /> Люди Икс: Первый класс (2011)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-8" /> Люди Икс (2000)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-9" /> Люди Икс 2 (2003)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-10" /> Люди Икс: Последняя битва (2006)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-13" /> Люди Икс: Апокалипсис (2016)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-12" /> Люди Икс: Дни минувшего будущего (2014)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-14" /> Люди Икс: Тёмный Феникс (2019)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-15" /> Новые мутанты (2020)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-4" /> Дэдпул (2016)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-5" /> Дэдпул 2 (2018)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-6" /> Дэдпул и Росомаха (2024)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-7" /> Логан (2017)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-16" /> Фантастическая четвёрка (2005)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-17" /> Фантастическая четвёрка 2: Вторжение Серебряного сёрфера (2007)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-18" /> Фантастическая четвёрка (2015)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-1" /> Веном (2018)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-2" /> Веном 2: Карнаж (2021)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-3" /> Морбиус (2022)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-19" /> Человек-паук (2002)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-20" /> Человек-паук 2 (2004)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-21" /> Человек-паук 3 (2007)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-22" /> Новый Человек-паук (2012)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-23" /> Новый Человек-паук: Высокое напряжение (2014)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-24" /> Человек-паук: Через вселенные (2018)</label></li>
+		<li class="associated-film"><label><input type="checkbox" data-id="assoc-25" /> Человек-паук: Паутина вселенных (2023)</label></li>
+      </ul>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Marvel Universe Fan Project</p>
+      <p>Плод трудов человека по имени Риша | tg: @sapnaeye</p>
+    </footer>
   </div>
 
   <script>
-    // Сохраняем состояние чекбоксов
-    document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
-      const id = checkbox.id;
-      const saved = localStorage.getItem(id);
-      if (saved === 'true') checkbox.checked = true;
+    const btnMovies = document.getElementById('btn-movies');
+    const btnComics = document.getElementById('btn-comics');
+    const btnAssociated = document.getElementById('btn-associated');
+    const moviesList = document.getElementById('movies-list');
+    const comicsList = document.getElementById('comics-list');
+    const associatedList = document.getElementById('associated-films-list');
 
-      checkbox.addEventListener('change', () => {
-        localStorage.setItem(id, checkbox.checked);
+    btnMovies.addEventListener('click', () => {
+      btnMovies.classList.add('active');
+      btnComics.classList.remove('active');
+      btnAssociated.classList.remove('active');
+      moviesList.classList.add('visible');
+      comicsList.classList.remove('visible');
+      associatedList.classList.remove('visible');
+    });
+
+    btnComics.addEventListener('click', () => {
+      btnComics.classList.add('active');
+      btnMovies.classList.remove('active');
+      btnAssociated.classList.remove('active');
+      comicsList.classList.add('visible');
+      moviesList.classList.remove('visible');
+      associatedList.classList.remove('visible');
+    });
+
+    btnAssociated.addEventListener('click', () => {
+      btnAssociated.classList.add('active');
+      btnMovies.classList.remove('active');
+      btnComics.classList.remove('active');
+      associatedList.classList.add('visible');
+      moviesList.classList.remove('visible');
+      comicsList.classList.remove('visible');
+    });
+
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    function loadCheckboxStates() {
+      checkboxes.forEach(cb => {
+        const saved = localStorage.getItem(cb.dataset.id);
+        cb.checked = saved === 'true';
+        if (cb.checked) cb.closest('li').classList.add('checked');
+      });
+    }
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        localStorage.setItem(cb.dataset.id, cb.checked);
+        cb.closest('li').classList.toggle('checked', cb.checked);
       });
     });
-
-    // Темная тема
-    const switcher = document.getElementById('themeSwitcher');
-    const body = document.body;
-
-    if (localStorage.getItem('theme') === 'light') {
-      body.classList.remove('dark');
-      switcher.checked = false;
-    } else {
-      body.classList.add('dark');
-      switcher.checked = true;
-    }
-
-    switcher.addEventListener('change', () => {
-      if (switcher.checked) {
-        body.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        body.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-    });
+    loadCheckboxStates();
   </script>
 </body>
 </html>
+
 
 
