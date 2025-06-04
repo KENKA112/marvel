@@ -30,50 +30,57 @@
   Отмечено <span id="checked-count">0</span> из <span id="total-count">0</span> фильмов/сериалов
   <div class="progress-bar"><div class="progress-fill" id="movie-progress"></div></div>
 </div>
+<div id="view-time-widget" class="view-time-widget">
+  ⏱ Общее время просмотра: <strong><span id="total-time">0</span></strong>
+  <div class="progress-bar">
+    <div id="view-time-bar" class="progress-fill"></div>
+  </div>
+</div>
+
 
     <div id="movies-list" class="list visible">
       <ul>
-        <li class="movie"><label><input type="checkbox" data-id="movie-1" /> Капитан Америка: Первый мститель (2011)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-2" /> Капитан Марвел (2019)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-3" /> Железный человек (2008)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-4" /> Железный человек 2 (2010)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-5" /> Невероятный Халк (2008)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-6" /> Тор (2011)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-7" /> Мстители (2012)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-8" /> Железный человек 3 (2013)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-9" /> Тор 2: Царство тьмы (2013)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-10" /> Первый мститель: Другая война (2014)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-11" /> Стражи Галактики (2014)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-12" /> Стражи Галактики. Часть 2 (2017)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-13" /> Мстители: Эра Альтрона (2015)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-14" /> Человек-муравей (2015)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-15" /> Первый мститель: Противостояние (2016)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-16" /> Чёрная вдова (2021)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-17" /> Чёрная пантера (2018)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-18" /> Человек-паук: Возвращение домой (2017)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-19" /> Доктор Стрэндж (2016)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-20" /> Тор: Рагнарёк (2017)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-21" /> Мстители: Война бесконечности (2018)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-22" /> Человек-муравей и Оса (2018)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-23" /> Мстители: Финал (2019)</label></li>
-        <li class="series"><label><input type="checkbox" data-id="movie-24" /> Локи (2021)</label></li>
-        <li class="series"><label><input type="checkbox" data-id="movie-25" /> Что, если...? (2021)</label></li>
-        <li class="series"><label><input type="checkbox" data-id="movie-26" /> Ванда/Вижн (2021)</label></li>
-        <li class="series"><label><input type="checkbox" data-id="movie-27" /> Сокол и Зимний солдат (2021)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-28" /> Шан-Чи и легенда десяти колец (2021)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-29" /> Вечные (2021)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-30" /> Доктор Стрэндж: В мультивселенной безумия (2022)</label></li>
-        <li class="series"><label><input type="checkbox" data-id="movie-31" /> Соколиный глаз (2021)</label></li>
-        <li class="series"><label><input type="checkbox" data-id="movie-32" /> Лунный рыцарь (2022)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-33" /> Чёрная пантера: Ваканда навеки (2022)</label></li>
-        <li class="series"><label><input type="checkbox" data-id="movie-34" /> Женщина-Халк (2022)</label></li>
-        <li class="series"><label><input type="checkbox" data-id="movie-35" /> Мисс Марвел (2022)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-36" /> Тор: Любовь и гром (2022)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-37" /> Человек-паук: Нет пути домой (2021)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-38" /> Человек-муравей и Оса: Квантомания (2023)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-39" /> Стражи Галактики. Часть 3 (2023)</label></li>
-        <li class="movie"><label><input type="checkbox" data-id="movie-40" /> Капитан Марвел 2: Марвелы (2023)</label></li>
-        <li class="series"><label><input type="checkbox" data-id="movie-41" /> Секретное вторжение (2023)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-1" data-duration="124"/> Капитан Америка: Первый мститель (2011)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-2" data-duration="128"/> Капитан Марвел (2019)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-3" data-duration="126"/> Железный человек (2008)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-4" data-duration="125"/> Железный человек 2 (2010)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-5" data-duration="112"/> Невероятный Халк (2008)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-6" data-duration="115"/> Тор (2011)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-7" data-duration="137"/> Мстители (2012)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-8" data-duration="130"/> Железный человек 3 (2013)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-9" data-duration="108"/> Тор 2: Царство тьмы (2013)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-10" data-duration="136"/> Первый мститель: Другая война (2014)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-11" data-duration="121"/> Стражи Галактики (2014)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-12" data-duration="136"/> Стражи Галактики. Часть 2 (2017)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-13" data-duration="141"/> Мстители: Эра Альтрона (2015)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-14" data-duration="117"/> Человек-муравей (2015)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-15" data-duration="142"/> Первый мститель: Противостояние (2016)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-16" data-duration="134"/> Чёрная вдова (2021)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-17" data-duration="134"/> Чёрная пантера (2018)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-18" data-duration="133"/> Человек-паук: Возвращение домой (2017)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-19" data-duration="115"/> Доктор Стрэндж (2016)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-20" data-duration="130"/> Тор: Рагнарёк (2017)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-21" data-duration="149"/> Мстители: Война бесконечности (2018)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-22" data-duration="118"/> Человек-муравей и Оса (2018)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-23" data-duration="181"/> Мстители: Финал (2019)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-24" data-duration="594"/> Локи (2021)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-25" data-duration="832"/> Что, если...? (2021)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-26" data-duration="288"/> Ванда/Вижн (2021)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-27" data-duration="300"/> Сокол и Зимний солдат (2021)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-28" data-duration="132"/> Шан-Чи и легенда десяти колец (2021)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-29" data-duration="156"/> Вечные (2021)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-30" data-duration="126"/> Доктор Стрэндж: В мультивселенной безумия (2022)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-31" data-duration="270"/> Соколиный глаз (2021)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-32" data-duration="300"/> Лунный рыцарь (2022)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-33" data-duration="161"/> Чёрная пантера: Ваканда навеки (2022)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-34" data-duration="270"/> Женщина-Халк (2022)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-35" data-duration="240"/> Мисс Марвел (2022)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-36" data-duration="119"/> Тор: Любовь и гром (2022)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-37" data-duration="148"/> Человек-паук: Нет пути домой (2021)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-38" data-duration="124"/> Человек-муравей и Оса: Квантомания (2023)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-39" data-duration="121"/> Стражи Галактики. Часть 3 (2023)</label></li>
+        <li class="movie"><label><input type="checkbox" data-id="movie-40" data-duration="105"/> Капитан Марвел 2: Марвелы (2023)</label></li>
+        <li class="series"><label><input type="checkbox" data-id="movie-41" data-duration="270"/> Секретное вторжение (2023)</label></li>
       </ul>
     </div>
 
@@ -199,7 +206,7 @@
     document.getElementById('movie-progress').style.width = percent + '%';
   }
 
-  // Инициализация
+ 
   document.addEventListener('DOMContentLoaded', () => {
     const checkboxes = document.querySelectorAll('#movies-list input[type="checkbox"]');
 
@@ -241,8 +248,43 @@ function resetAllCheckboxes() {
     cb.closest('li')?.classList.remove('checked');
     if (cb.dataset.id) localStorage.removeItem(cb.dataset.id);
   });
-  updateMovieStats?.(); // если есть функция для обновления статистики
+  updateMovieStats?.(); 
 }
+</script>
+<script>
+  function updateWatchTime() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    let totalMinutes = 0;
+
+    checkboxes.forEach(cb => {
+      if (cb.checked && cb.dataset.duration) {
+        totalMinutes += parseInt(cb.dataset.duration, 10);
+      }
+    });
+
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+    const percent = Math.min((totalMinutes / 6000) * 100, 100); // 100 часов как условный максимум
+
+    const timeDisplay = document.getElementById('total-time');
+    const bar = document.getElementById('view-time-bar');
+
+    if (timeDisplay && bar) {
+      timeDisplay.textContent = `${hours} ч ${minutes} мин`;
+      bar.style.width = `${percent}%`;
+    }
+  }
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    updateWatchTime();
+    const allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+    allCheckboxes.forEach(cb => {
+      cb.addEventListener('change', updateWatchTime);
+    });
+  });
+</script>
+
 </script>
 </body>
 </html>
