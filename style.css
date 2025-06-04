@@ -116,7 +116,7 @@ input[type="checkbox"]:checked {
 }
 
 input[type="checkbox"]:checked::after {
-  content: "\2713";
+  content: "\2713"; 
   color: white;
   font-size: 14px;
   position: absolute;
@@ -158,7 +158,7 @@ footer {
     }
 
 
-/* Стилизация секции с комиксами */
+
 #comics-list h2 {
   font-size: 1.6em;
   margin-bottom: 10px;
@@ -207,3 +207,106 @@ footer {
   color: #00ffff;
   text-decoration: underline;
 }
+.progress-summary {
+  font-size: 0.95em;
+  color: #ccc;
+  margin: 0 auto 20px auto; 
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 14px;
+  border-radius: 8px;
+  max-width: 300px;
+  text-align: center;
+}
+
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #4dd0e1;
+  transition: width 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+/* Кнопка переключения темы */
+.theme-toggle {
+  margin-top: 20px;
+  background: #4dd0e1;
+  color: #0a0a0a;
+  border: none;
+  padding: 10px 24px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 25px;
+  box-shadow: 0 0 10px rgba(77, 208, 225, 0.4);
+  transition: all 0.3s ease;
+}
+.button-reset {
+  margin-top: 20px;
+  background: #4dd0e1;
+  color: #0a0a0a;
+  border: none;
+  padding: 10px 24px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 25px;
+  box-shadow: 0 0 10px rgba(77, 208, 225, 0.4);
+  transition: all 0.3s ease;
+  margin-left: 20px; 
+}
+.theme-toggle:hover {
+  background: #30c8cf;
+  box-shadow: 0 0 15px rgba(77, 208, 225, 0.7);
+  transform: scale(1.05);
+}
+
+/* Фоновое изображение с лёгким размытием и анимацией */
+body.comic-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px) brightness(0.4);
+  z-index: -2;
+  animation: slowZoom 30s ease-in-out infinite alternate;
+  transition: opacity 0.5s ease-in-out;
+}
+
+body.comic-bg::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255,0,0,0.15), rgba(0,0,255,0.15), rgba(0,255,0,0.15));
+  background-size: 200% 200%;
+  mix-blend-mode: overlay;
+  animation: colorShift 15s infinite alternate ease-in-out;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+@keyframes colorShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes slowZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Marvel: Фильмы и Комиксы с чекбоксами</title>
+  <title>Marvel: Фильмы и Комиксы</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -18,7 +18,18 @@
       <button id="btn-movies" class="active">Фильмы и сериалы</button>
       <button id="btn-comics">Комиксы</button>
       <button id="btn-associated">Проекты в ассоциации с Marvel</button>
+  <div style="width: 100%; display: flex; justify-content: center; margin-top: 8px;">
+    <button class="theme-toggle" onclick="toggleTheme()">Переключить фон</button>
+	<button class="button-reset" onclick="resetAllCheckboxes()">Сбросить галочки</button>
+  </div>
     </div>
+<div>
+
+</div>
+<div class="progress-summary" id="movie-stats">
+  Отмечено <span id="checked-count">0</span> из <span id="total-count">0</span> фильмов/сериалов
+  <div class="progress-bar"><div class="progress-fill" id="movie-progress"></div></div>
+</div>
 
     <div id="movies-list" class="list visible">
       <ul>
@@ -86,6 +97,7 @@
 	<li><a href="https://dzen.ru/a/Z5k4196daU1WED0o" target="_blank">Dzen (9nchantix)</a> — статья Дзен с порядком комиксов и разделением их на "арки"</li>
   </ul>
 </div>
+
 
 
     <div id="associated-films-list" class="list">
@@ -175,6 +187,63 @@
     });
     loadCheckboxStates();
   </script>
+  <script>
+  function updateMovieStats() {
+    const checkboxes = document.querySelectorAll('#movies-list input[type="checkbox"]');
+    const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
+    const total = checkboxes.length;
+    const percent = total > 0 ? (checked / total) * 100 : 0;
+
+    document.getElementById('checked-count').textContent = checked;
+    document.getElementById('total-count').textContent = total;
+    document.getElementById('movie-progress').style.width = percent + '%';
+  }
+
+  // Инициализация
+  document.addEventListener('DOMContentLoaded', () => {
+    const checkboxes = document.querySelectorAll('#movies-list input[type="checkbox"]');
+
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        localStorage.setItem(cb.dataset.id, cb.checked);
+        cb.closest('li').classList.toggle('checked', cb.checked);
+        updateMovieStats();
+      });
+
+      const saved = localStorage.getItem(cb.dataset.id);
+      if (saved === 'true') {
+        cb.checked = true;
+        cb.closest('li').classList.add('checked');
+      }
+    });
+
+    updateMovieStats();
+  });
+</script>
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle('comic-bg');
+    localStorage.setItem('theme', document.body.classList.contains('comic-bg') ? 'comic' : 'default');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'comic') {
+      document.body.classList.add('comic-bg');
+    }
+  });
+</script>
+<script>
+function resetAllCheckboxes() {
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach(cb => {
+    cb.checked = false;
+    cb.closest('li')?.classList.remove('checked');
+    if (cb.dataset.id) localStorage.removeItem(cb.dataset.id);
+  });
+  updateMovieStats?.(); // если есть функция для обновления статистики
+}
+</script>
 </body>
 </html>
 
